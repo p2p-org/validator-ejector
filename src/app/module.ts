@@ -35,8 +35,10 @@ export const bootstrap = async () => {
   try {
     const loggerConfig = makeLoggerConfig({ env: process.env })
 
-    let hiddenEnvs: string[] = loggerConfig.LOGGER_HIDDEN_ENV.map(env => process.env[env]?.toString() ?? '')
-    let secrets = loggerConfig.LOGGER_SECRETS.concat(hiddenEnvs)
+    const hiddenEnvs: string[] = loggerConfig.LOGGER_HIDDEN_ENV.map(
+      env => process.env[env]?.toString() ?? ''
+    )
+    const secrets = loggerConfig.LOGGER_SECRETS.concat(hiddenEnvs)
 
     const logger = makeLogger({
       level: loggerConfig.LOGGER_LEVEL,

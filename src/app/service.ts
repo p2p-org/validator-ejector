@@ -10,12 +10,7 @@ export const makeApp = ({
   consensusApi,
   appInfoReader,
 }: Dependencies) => {
-  const {
-    OPERATOR_ID,
-    BLOCKS_PRELOAD,
-    BLOCKS_LOOP,
-    JOB_INTERVAL,
-  } = config
+  const { OPERATOR_ID, BLOCKS_PRELOAD, BLOCKS_LOOP, JOB_INTERVAL } = config
 
   const run = async () => {
     const version = await appInfoReader.getVersion()
